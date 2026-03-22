@@ -166,7 +166,16 @@
             <h2 class="section-title">Tu mesa en Refinatto</h2>
             <p class="section-text">Completa el formulario y te confirmamos por email o teléfono. Para grupos de más de 8 personas o eventos, indícalo en el mensaje.</p>
           </div>
-          <form class="booking-form reveal reveal-delay" id="bookingForm" novalidate>
+          <form
+            class="booking-form reveal reveal-delay"
+            id="bookingForm"
+            action="https://formsubmit.co/aldair.santosrochadev@gmail.com"
+            method="POST"
+            novalidate
+          >
+            <input type="hidden" name="_subject" value="Refinatto — Nueva solicitud de reserva" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" id="formNext" value="" />
             <div class="form-row">
               <label for="nombre">Nombre</label>
               <input type="text" id="nombre" name="nombre" required autocomplete="name" />

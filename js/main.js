@@ -115,9 +115,15 @@
     updateActiveNav();
   }
 
-  /* Booking form */
+  /* Booking form (FormSubmit: https://formsubmit.co) */
   var form = document.getElementById("bookingForm");
   var successEl = document.getElementById("formSuccess");
+  var formNext = document.getElementById("formNext");
+
+  if (formNext && (window.location.protocol === "http:" || window.location.protocol === "https:")) {
+    formNext.value =
+      window.location.origin + window.location.pathname + "?reserva=ok#reservas";
+  }
 
   function showError(id, msg) {
     var el = document.getElementById(id);
@@ -141,7 +147,6 @@
 
   if (form) {
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
       clearErrors();
       if (successEl) {
         successEl.hidden = true;
@@ -183,13 +188,24 @@
         ok = false;
       }
 
-      if (!ok) return;
-
-      if (successEl) {
-        successEl.hidden = false;
+      if (!ok) {
+        e.preventDefault();
+        return;
       }
-      form.reset();
+      /* Envío real a FormSubmit — el navegador envía el POST */
     });
+  }
+
+  if (successEl && /\breserva=ok\b/.test(window.location.search)) {
+    successEl.hidden = false;
+    var reservasSection = document.getElementById("reservas");
+    if (reservasSection) {
+      reservasSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    if (window.history && window.history.replaceState) {
+      var cleanUrl = window.location.pathname + (window.location.hash || "#reservas");
+      window.history.replaceState({}, "", cleanUrl);
+    }
   }
 
   /* Min date for reservation */
