@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Refinatto — Cocina mediterránea contemporánea en el corazón de Granada. Producto local, ambiente cuidado y reservas online." />
+  <title>Refinatto | Restaurante en Granada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a href="#top" class="logo" aria-label="Refinatto — inicio">Refinatto</a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav class="main-nav" id="mainNav" aria-label="Principal">
+        <ul class="nav-list">
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#cocina">Nuestra cocina</a></li>
+          <li><a href="#carta">Carta</a></li>
+          <li><a href="#reservas">Reservas</a></li>
+          <li><a href="#granada">Granada</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content hero-content-animate">
+        <p class="hero-eyebrow">Granada · Mediterráneo contemporáneo</p>
+        <h1 id="hero-title" class="hero-title">Calor refinado, sabor de aquí</h1>
+        <p class="hero-lead">Producto local, técnica actual y un espacio donde cada detalle invita a quedarse.</p>
+        <div class="hero-cta">
+          <a href="#reservas" class="btn btn-primary">Reservar mesa</a>
+          <a href="#carta" class="btn btn-ghost">Ver carta</a>
+        </div>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Desplazar</span>
+        <span class="hero-scroll-line"></span>
+      </div>
+    </section>
+
+    <section class="section section-showcase" id="showcase" aria-labelledby="showcase-title">
+      <div class="container">
+        <header class="section-head center">
+          <p class="section-eyebrow">Showcase</p>
+          <h2 id="showcase-title" class="section-title">Ambiente, plato y detalle</h2>
+          <p class="section-sub">Un vistazo a nuestro espacio y la cocina en acción. Imágenes reales de referencia y un vídeo de ambiente gastronómico.</p>
+        </header>
+        <div class="showcase-grid">
+          <figure class="showcase-card showcase-card--tall reveal">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=85" alt="Interior de restaurante con mesas y luz cálida" width="600" height="800" loading="lazy" />
+            <figcaption class="showcase-caption">Salón principal</figcaption>
+          </figure>
+          <figure class="showcase-card reveal reveal-delay">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=85" alt="Plato gourmet servido en mesa" width="600" height="450" loading="lazy" />
+            <figcaption class="showcase-caption">En el plato</figcaption>
+          </figure>
+          <figure class="showcase-card reveal reveal-delay-2">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=85" alt="Ambiente de barra y servicio en restaurante" width="600" height="450" loading="lazy" />
+            <figcaption class="showcase-caption">Barra y servicio</figcaption>
+          </figure>
+          <div class="showcase-video-wrap reveal reveal-delay">
+            <p class="showcase-video-label">Vídeo</p>
+            <div class="showcase-video-inner">
+              <video
+                class="showcase-video"
+                controls
+                playsinline
+                preload="metadata"
+                poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80"
+                aria-label="Vídeo de ambiente de restaurante y servicio"
+              >
+                <source src="https://videos.pexels.com/video-files/3045163/3045163-hd_1920_1080_30fps.mp4" type="video/mp4" />
+                Tu navegador no reproduce vídeo HTML5.
+              </video>
+            </div>
+            <p class="showcase-video-credit">Vídeo de muestra (Pexels) — sustituir por material propio en producción.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-intro" id="intro">
+      <div class="container narrow">
+        <p class="section-eyebrow">Por qué Refinatto</p>
+        <h2 class="section-title">Una experiencia premium sin el precio inalcanzable</h2>
+        <p class="section-text">No somos solo otro restaurante en el centro: cocinamos la tradición mediterránea con mirada actual, respetando el producto de la sierra, el olivar y el mercado de Granada. Venir a Refinatto es celebrar lo cotidiano con un punto de distinción.</p>
+      </div>
+    </section>
+
+    <section class="section section-kitchen" id="cocina">
+      <div class="container">
+        <div class="split">
+          <div class="split-text reveal">
+            <p class="section-eyebrow">Nuestra cocina</p>
+            <h2 class="section-title">De la tierra al plato</h2>
+            <p class="section-text">Trabajamos con pequeños productores andaluces, aceite de oliva virgen extra y verduras de temporada. Cada carta se renueva para reflejar lo que el mercado ofrece mejor en cada momento.</p>
+            <ul class="feature-list">
+              <li>Menús degustación y opciones à la carte</li>
+              <li>Bodega con vinos de la tierra y referencias nacionales</li>
+              <li>Opciones vegetarianas y alérgenos informados</li>
+            </ul>
+          </div>
+          <div class="split-visual reveal reveal-delay">
+            <div class="card-image card-image-1" role="img" aria-label="Ambiente del comedor"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-menu" id="carta">
+      <div class="container">
+        <header class="section-head center">
+          <p class="section-eyebrow">Carta</p>
+          <h2 class="section-title">Lo que encontrarás</h2>
+          <p class="section-sub">Una muestra de nuestra propuesta. La carta completa en el restaurante y actualizada cada temporada.</p>
+        </header>
+        <div class="menu-grid">
+          <article class="menu-card reveal">
+            <h3 class="menu-card-title">Entrantes</h3>
+            <ul class="menu-items">
+              <li><span class="dish">Ajo blanco reinterpretado</span><span class="price">12 €</span></li>
+              <li><span class="dish">Tomate aliñado, ventresca y albahaca</span><span class="price">14 €</span></li>
+              <li><span class="dish">Carpaccio de remolacha y queso de cabra</span><span class="price">13 €</span></li>
+            </ul>
+          </article>
+          <article class="menu-card reveal reveal-delay">
+            <h3 class="menu-card-title">Principales</h3>
+            <ul class="menu-items">
+              <li><span class="dish">Lubina a la espalda, hortalizas asadas</span><span class="price">26 €</span></li>
+              <li><span class="dish">Presa ibérica, puré de patata y PX</span><span class="price">24 €</span></li>
+              <li><span class="dish">Risotto de setas y parmesano</span><span class="price">19 €</span></li>
+            </ul>
+          </article>
+          <article class="menu-card reveal reveal-delay-2">
+            <h3 class="menu-card-title">Postre</h3>
+            <ul class="menu-items">
+              <li><span class="dish">Tarta de queso, coulis de frutos rojos</span><span class="price">8 €</span></li>
+              <li><span class="dish">Turrón helado, miel y pistacho</span><span class="price">8 €</span></li>
+            </ul>
+          </article>
+        </div>
+        <p class="menu-note">* Precios orientativos. IVA incluido.</p>
+      </div>
+    </section>
+
+    <section class="section section-booking" id="reservas">
+      <div class="container">
+        <div class="booking-wrap">
+          <div class="booking-text reveal">
+            <p class="section-eyebrow">Reservas</p>
+            <h2 class="section-title">Tu mesa en Refinatto</h2>
+            <p class="section-text">Completa el formulario y te confirmamos por email o teléfono. Para grupos de más de 8 personas o eventos, indícalo en el mensaje.</p>
+          </div>
+          <form class="booking-form reveal reveal-delay" id="bookingForm" novalidate>
+            <div class="form-row">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required autocomplete="name" />
+              <span class="field-error" id="err-nombre"></span>
+            </div>
+            <div class="form-row two">
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required autocomplete="email" />
+                <span class="field-error" id="err-email"></span>
+              </div>
+              <div>
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" required autocomplete="tel" />
+                <span class="field-error" id="err-telefono"></span>
+              </div>
+            </div>
+            <div class="form-row two">
+              <div>
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" name="fecha" required />
+                <span class="field-error" id="err-fecha"></span>
+              </div>
+              <div>
+                <label for="personas">Personas</label>
+                <select id="personas" name="personas" required>
+                  <option value="">Seleccionar</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7+">7 o más</option>
+                </select>
+                <span class="field-error" id="err-personas"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="mensaje">Mensaje (opcional)</label>
+              <textarea id="mensaje" name="mensaje" rows="3" placeholder="Alergias, celebración…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Enviar solicitud</button>
+            <p class="form-success" id="formSuccess" hidden role="status">Gracias. Hemos recibido tu solicitud; te contactaremos pronto.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-granada" id="granada">
+      <div class="container">
+        <div class="split split-reverse">
+          <div class="split-visual reveal">
+            <figure class="granada-split-figure">
+              <img
+                src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=960&q=85"
+                alt="Vista panorámica de Granada al atardecer"
+                width="800"
+                height="500"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+          <div class="split-text reveal reveal-delay">
+            <p class="section-eyebrow">Granada & nosotros</p>
+            <h2 class="section-title">En el pulso de la ciudad</h2>
+            <p class="section-text">Estamos a un paso del barrio que elige quien quiere cenar con calma: lejos del ruido de las rutas masificadas, cerca del alma de Granada. Ideal después de un paseo por el Albaicín o antes de una noche en el centro.</p>
+            <address class="address-block">
+              <strong>Refinatto</strong><br />
+              Calle Ejemplo, 12 · 18001 Granada<br />
+              <a href="tel:+34958123456">+34 958 123 456</a>
+            </address>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-events" id="eventos">
+      <div class="container">
+        <header class="section-head center">
+          <p class="section-eyebrow">Eventos</p>
+          <h2 class="section-title">Grupos y celebraciones</h2>
+          <p class="section-sub">Cumpleaños, cenas de empresa o pequeños eventos privados. Adaptamos menú y horarios; consúltanos sin compromiso.</p>
+        </header>
+        <div class="events-cta center">
+          <a href="#contacto" class="btn btn-primary">Pedir información</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contacto">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <p class="section-eyebrow">Contacto</p>
+            <h2 class="section-title">Hablemos</h2>
+            <p class="section-text">Horario comercial: martes a domingo, 13:30–16:00 y 20:00–23:30. Lunes cerrado.</p>
+            <ul class="contact-list">
+              <li><a href="mailto:hola@refinatto.es">hola@refinatto.es</a></li>
+              <li><a href="tel:+34958123456">+34 958 123 456</a></li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">@refinatto_granada</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-location" id="ubicacion" aria-labelledby="ubicacion-title">
+      <div class="container">
+        <header class="section-head center">
+          <p class="section-eyebrow">Ubicación</p>
+          <h2 id="ubicacion-title" class="section-title">Cómo llegar</h2>
+          <p class="section-sub">Mapa de prueba — centro de Granada (referencia). En producción, sustituye por el embed de Google Maps de tu dirección.</p>
+        </header>
+        <div class="map-embed-wrap reveal">
+          <iframe
+            title="Mapa de prueba — Granada, España"
+            class="map-embed"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-3.6045%2C37.1748%2C-3.5955%2C37.1802&amp;layer=mapnik&amp;marker=37.1775%2C-3.6000"
+            width="600"
+            height="450"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo logo-footer">Refinatto</span>
+        <p class="footer-tag">Cocina mediterránea contemporánea · Granada</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pie de página">
+        <a href="#legal-privacidad" id="openLegal">Privacidad</a>
+        <a href="#legal-cookies" id="openCookies">Cookies</a>
+      </nav>
+      <p class="footer-copy">&copy; <span id="year"></span> Refinatto. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <div class="modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" hidden>
+    <div class="modal-backdrop" id="legalBackdrop"></div>
+    <div class="modal-panel">
+      <button type="button" class="modal-close" id="closeLegal" aria-label="Cerrar">&times;</button>
+      <h2 id="legalModalTitle" class="modal-title">Aviso legal</h2>
+      <div class="modal-body" id="legalModalBody">
+        <p>Contenido de ejemplo para portfolio. En producción, incluir política de privacidad conforme al RGPD y ley española (LOPDGDD), datos del responsable, finalidades, derechos ARCO+ y información sobre cookies.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
