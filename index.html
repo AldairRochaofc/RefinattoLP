@@ -166,16 +166,10 @@
             <h2 class="section-title">Tu mesa en Refinatto</h2>
             <p class="section-text">Completa el formulario y te confirmamos por email o teléfono. Para grupos de más de 8 personas o eventos, indícalo en el mensaje.</p>
           </div>
-          <form
-            class="booking-form reveal reveal-delay"
-            id="bookingForm"
-            action="https://formsubmit.co/aldair.santosrochadev@gmail.com"
-            method="POST"
-            novalidate
-          >
+          <form class="booking-form reveal reveal-delay" id="bookingForm" novalidate>
             <input type="hidden" name="_subject" value="Refinatto — Nueva solicitud de reserva" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" id="formNext" value="" />
+            <input type="hidden" name="_captcha" value="false" />
             <div class="form-row">
               <label for="nombre">Nombre</label>
               <input type="text" id="nombre" name="nombre" required autocomplete="name" />
@@ -218,8 +212,7 @@
               <label for="mensaje">Mensaje (opcional)</label>
               <textarea id="mensaje" name="mensaje" rows="3" placeholder="Alergias, celebración…"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Enviar solicitud</button>
-            <p class="form-success" id="formSuccess" hidden role="status">Gracias. Hemos recibido tu solicitud; te contactaremos pronto.</p>
+            <button type="submit" class="btn btn-primary btn-block" id="bookingSubmitBtn">Enviar solicitud</button>
           </form>
         </div>
       </div>
@@ -318,6 +311,17 @@
       <p class="footer-copy">&copy; <span id="year"></span> Refinatto. Todos los derechos reservados.</p>
     </div>
   </footer>
+
+  <div class="modal" id="bookingThanksModal" role="dialog" aria-modal="true" aria-labelledby="bookingThanksTitle" hidden>
+    <div class="modal-backdrop" id="bookingThanksBackdrop"></div>
+    <div class="modal-panel modal-panel--booking-ok" id="bookingThanksPanel">
+      <button type="button" class="modal-close" id="closeBookingThanks" aria-label="Cerrar">&times;</button>
+      <h2 id="bookingThanksTitle" class="modal-title">Solicitud enviada</h2>
+      <div class="modal-body">
+        <p id="bookingThanksMsg">Gracias. Hemos recibido tu solicitud; te contactaremos pronto.</p>
+      </div>
+    </div>
+  </div>
 
   <div class="modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle" hidden>
     <div class="modal-backdrop" id="legalBackdrop"></div>

@@ -115,15 +115,48 @@
     updateActiveNav();
   }
 
-  /* Booking form (FormSubmit: https://formsubmit.co) */
+  /* Booking form — FormSubmit AJAX (https://formsubmit.co/ajax-documentation) */
   var form = document.getElementById("bookingForm");
-  var successEl = document.getElementById("formSuccess");
-  var formNext = document.getElementById("formNext");
+  var bookingThanksModal = document.getElementById("bookingThanksModal");
+  var bookingThanksBackdrop = document.getElementById("bookingThanksBackdrop");
+  var closeBookingThanks = document.getElementById("closeBookingThanks");
+  var bookingThanksTitle = document.getElementById("bookingThanksTitle");
+  var bookingThanksMsg = document.getElementById("bookingThanksMsg");
+  var bookingThanksPanel = document.getElementById("bookingThanksPanel");
+  var bookingSubmitBtn = document.getElementById("bookingSubmitBtn");
+  var FORMSUBMIT_AJAX = "https://formsubmit.co/ajax/aldair.santosrochadev@gmail.com";
+  var bookingSubmitLabel = bookingSubmitBtn ? bookingSubmitBtn.textContent : "";
 
-  if (formNext && (window.location.protocol === "http:" || window.location.protocol === "https:")) {
-    formNext.value =
-      window.location.origin + window.location.pathname + "?reserva=ok#reservas";
+  function openBookingThanksModal(success, title, msg) {
+    if (!bookingThanksModal) return;
+    if (bookingThanksTitle) {
+      bookingThanksTitle.textContent = title || (success ? "Solicitud enviada" : "No se pudo enviar");
+    }
+    if (bookingThanksMsg) {
+      bookingThanksMsg.textContent =
+        msg ||
+        (success
+          ? "Gracias. Hemos recibido tu solicitud; te contactaremos pronto."
+          : "Ha ocurrido un error. Inténtalo de nuevo en unos minutos o llámanos por teléfono.");
+    }
+    if (bookingThanksPanel) {
+      bookingThanksPanel.classList.toggle("modal-panel--booking-ok", success);
+      bookingThanksPanel.classList.toggle("modal-panel--error", !success);
+    }
+    bookingThanksModal.hidden = false;
+    document.body.classList.add("modal-open");
+    if (closeBookingThanks) closeBookingThanks.focus();
   }
+
+  function closeBookingThanksModal() {
+    if (!bookingThanksModal) return;
+    bookingThanksModal.hidden = true;
+    document.body.classList.remove("modal-open");
+    if (bookingSubmitBtn) bookingSubmitBtn.focus();
+  }
+
+  if (closeBookingThanks) closeBookingThanks.addEventListener("click", closeBookingThanksModal);
+  if (bookingThanksBackdrop) bookingThanksBackdrop.addEventListener("click", closeBookingThanksModal);
 
   function showError(id, msg) {
     var el = document.getElementById(id);
@@ -147,10 +180,8 @@
 
   if (form) {
     form.addEventListener("submit", function (e) {
+      e.preventDefault();
       clearErrors();
-      if (successEl) {
-        successEl.hidden = true;
-      }
 
       var nombre = document.getElementById("nombre");
       var email = document.getElementById("email");
@@ -188,24 +219,61 @@
         ok = false;
       }
 
-      if (!ok) {
-        e.preventDefault();
-        return;
-      }
-      /* Envío real a FormSubmit — el navegador envía el POST */
-    });
-  }
+      if (!ok) return;
 
-  if (successEl && /\breserva=ok\b/.test(window.location.search)) {
-    successEl.hidden = false;
-    var reservasSection = document.getElementById("reservas");
-    if (reservasSection) {
-      reservasSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    if (window.history && window.history.replaceState) {
-      var cleanUrl = window.location.pathname + (window.location.hash || "#reservas");
-      window.history.replaceState({}, "", cleanUrl);
-    }
+      if (bookingSubmitBtn) {
+        bookingSubmitBtn.disabled = true;
+        bookingSubmitBtn.setAttribute("aria-busy", "true");
+        bookingSubmitBtn.textContent = "Enviando…";
+      }
+
+      var fd = new FormData(form);
+
+      fetch(FORMSUBMIT_AJAX, {
+        method: "POST",
+        body: fd,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then(function (res) {
+          return res.text().then(function (text) {
+            var data = {};
+            try {
+              data = text ? JSON.parse(text) : {};
+            } catch (err) {
+              data = {};
+            }
+            return { ok: res.ok, data: data };
+          });
+        })
+        .then(function (result) {
+          if (result.ok) {
+            openBookingThanksModal(true);
+            form.reset();
+            var fi = document.getElementById("fecha");
+            if (fi) {
+              var t2 = new Date();
+              var y2 = t2.getFullYear();
+              var m2 = String(t2.getMonth() + 1).padStart(2, "0");
+              var d2 = String(t2.getDate()).padStart(2, "0");
+              fi.min = y2 + "-" + m2 + "-" + d2;
+            }
+          } else {
+            openBookingThanksModal(false);
+          }
+        })
+        .catch(function () {
+          openBookingThanksModal(false);
+        })
+        .finally(function () {
+          if (bookingSubmitBtn) {
+            bookingSubmitBtn.disabled = false;
+            bookingSubmitBtn.removeAttribute("aria-busy");
+            bookingSubmitBtn.textContent = bookingSubmitLabel;
+          }
+        });
+    });
   }
 
   /* Min date for reservation */
@@ -280,7 +348,12 @@
   if (legalBackdrop) legalBackdrop.addEventListener("click", closeLegalModal);
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && legalModal && !legalModal.hidden) {
+    if (e.key !== "Escape") return;
+    if (bookingThanksModal && !bookingThanksModal.hidden) {
+      closeBookingThanksModal();
+      return;
+    }
+    if (legalModal && !legalModal.hidden) {
       closeLegalModal();
     }
   });
